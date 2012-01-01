@@ -1,0 +1,4 @@
+<permissions>
+  <library name="scala_immutable-2.9.1"
+    file="/data/data/com.mobilemagic.scalainstaller/files/scala_immutable_291.jar"/>
+</permissions>

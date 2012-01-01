@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Scala Installer</string>
+    <string name="info_text">
+        Disclaimer: Execute this at your own risk\n\n
+        This installer does the following:\n\n
+
+
+        1. Remount /system writable\n
+        2. Extract the libraries from this package\n
+        3. Link the library descriptor files into /system/etc/permissions\n
+        4. Remount /system read-only\n
+    </string>
+    <string name="run_button_text">Install Scala 2.9.1 libraries</string>
+    <string name="uninstall_button_text">Remove Scala 2.9.1 libraries</string>
+</resources>

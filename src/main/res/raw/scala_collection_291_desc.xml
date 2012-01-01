@@ -1,0 +1,4 @@
+<permissions>
+  <library name="scala_collection-2.9.1"
+    file="/data/data/com.mobilemagic.scalainstaller/files/scala_collection_291.jar"/>
+</permissions>
