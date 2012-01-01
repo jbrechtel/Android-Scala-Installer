@@ -14,7 +14,7 @@ object RoboInstaller {
     Log.d(TAG, "Make /system read-only")
     sudo("mount -o remount,ro /system")
   }
-
+  
   def sudo(cmd: String) {
     try {
       val proc: Process = runtime.exec(Array[String]("su", "-c", cmd))
@@ -45,19 +45,30 @@ object RoboInstaller {
 
 class RoboInstaller(ctx: Context) {
 
-  def installScalaLibs() {
+  private def performOperationOnSystem(op: => Unit) {
     try {
-      RoboInstaller.makeWritable()
+          RoboInstaller.makeWritable()
+          op
+        }
+        catch {
+          case e: Exception => {
+            throw new RuntimeException(e)
+          }
+        }
+        finally {
+          RoboInstaller.makeReadOnly()
+        }    
+  }
+  def installScalaLibs() {
+    performOperationOnSystem {
       installFiles()
       makeLinks()
     }
-    catch {
-      case e: Exception => {
-        throw new RuntimeException(e)
-      }
-    }
-    finally {
-      RoboInstaller.makeReadOnly()
+  }
+  
+  def uninstallScalaLibs() {
+    performOperationOnSystem {
+      removeLinks()
     }
   }
 
@@ -69,6 +80,13 @@ class RoboInstaller(ctx: Context) {
     for (resid <- RoboInstaller.resources) {
       val path: File = fileForResource(resid)
       if (path.getName.endsWith("_desc.xml")) RoboInstaller.sudo("ln -s "+path.getAbsolutePath+" /system/etc/permissions/"+path.getName)
+    }
+  }
+
+  private def removeLinks() {
+    for (resid <- RoboInstaller.resources) {
+      val path: File = fileForResource(resid)
+      if (path.getName.endsWith("_desc.xml")) RoboInstaller.sudo("rm /system/etc/permissions/"+path.getName)
     }
   }
 

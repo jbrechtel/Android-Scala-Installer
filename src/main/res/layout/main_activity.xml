@@ -10,13 +10,13 @@
               android:textSize="15sp"
               android:text="@string/info_text" />
 
-    <Button android:id="@+id/button"
+    <Button android:id="@+id/install_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/run_button_text" />
 
-    <Button android:id="@+id/button"
+    <Button android:id="@+id/uninstall_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
