@@ -1,5 +1,7 @@
 ### Android Scala Installer
 This is an Android application that lets you install the Scala 2.9.1 standard library onto your rooted Android device as a set of shared libraries.
+Once these are installed to your development device, you can forgo packaging the Scala library with your application and running Proguard. The Proguard
+step alone takes about 1.5-2 minutes on my machine.  It's a huge time-saver.
 
 This is *ONLY* useful for development purposes as it lets you build Android applications without including the Scala library
 in your APK.  When packaging your application for general consumption (e.g. the Android Market) you should not rely on Scala being pre-installed
