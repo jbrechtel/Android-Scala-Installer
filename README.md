@@ -31,8 +31,5 @@ To reference the libraries in your application during development you should add
 
 ### Credits
 
-The majority of the work done for this was completed by [Macarse](https://github.com/Macarse)
-This application is essentially a line-for-line conversion of his work with a few minor additions.
-
-Here is Macarse's original [blog post](http://android-argentina.blogspot.com/2011/11/roboinstaller-install-roboguice.html)
-and the [GitHub repo](https://github.com/Macarse/Roboinstaller)
+The majority of the work done for this was completed by [Johannes Rudolph](https://github.com/jrudolph)
+This application is essentially a line-for-line conversion of his work to Scala with a few minor additions.
