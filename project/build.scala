@@ -16,7 +16,8 @@ object General {
     AndroidProject.androidSettings ++
     TypedResources.settings ++
     AndroidMarketPublish.settings ++ Seq (
-      keyalias in Android := "change-me",
+      keyalias in Android := "scala_installer",
+      keystorePath in Android := file("../keys/scala_installer.keystore"),
       libraryDependencies += "org.scalatest" %% "scalatest" % "1.6.1" % "test"
     )
 }
